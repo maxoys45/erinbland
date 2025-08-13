@@ -1,0 +1,51 @@
+{
+  "heading": "Media",
+  "body": "Description.",
+  "images": [
+    {
+      "src": "media-01.jpg",
+      "caption": "GQ (2017)\nAmerican Eagle Outfitters - Men's Shawl Cardigan"
+    },
+    { "src": "media-02.jpg", "caption": "GQ (2017)\nFront Cover" },
+    {
+      "src": "media-03.jpg",
+      "caption": "GQ (2015)\nAmerican Eagle Outfitters - Men's Shawl Cardigan"
+    },
+    { "src": "media-04.jpg", "caption": "Locke & Key (2020)" },
+    {
+      "src": "media-05.jpg",
+      "caption": "Locke & Key (2020)\nAmerican Eagle Outfitters - Men's Popover Hood"
+    },
+    { "src": "media-06.jpg", "caption": "Queer Eye: We're in Japan! (2019)" },
+    {
+      "src": "media-07.jpg",
+      "caption": "Queer Eye: We're in Japan! (2019)\nAmerican Eagle Outfitters - Men's Fair Isle Crew Neck"
+    },
+    { "src": "media-08.jpg", "caption": "Bad Moms (2016)" },
+    {
+      "src": "media-09.jpg",
+      "caption": "Bad Moms (2016)\nAmerican Eagle Outfitters - Men's Popover Hood"
+    },
+    {
+      "src": "media-10.jpg",
+      "caption": "Sugar Magazine UK (2006)\nFront Cover"
+    },
+    {
+      "src": "media-11.jpg",
+      "caption": "Sugar Magazine UK (2006)\nDesign Interview"
+    },
+    {
+      "src": "media-12.jpg",
+      "caption": "Sugar Magazine UK (2006)\nDesign Interview"
+    },
+    {
+      "src": "media-13.jpg",
+      "caption": "Create Your Own Cartoons (2003)\nBook Cover"
+    },
+    {
+      "src": "media-14.jpg",
+      "caption": "Create Your Own Cartoons (2003)\nOriginal Illustration feature"
+    },
+    { "src": "media-15.jpg", "caption": "Original Artwork" }
+  ]
+}

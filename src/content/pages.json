@@ -15,6 +15,11 @@
     "content": "follow-on-collection.json"
   },
   {
+    "slug": "media",
+    "title": "Media",
+    "content": "media.json"
+  },
+  {
     "slug": "contact",
     "title": "Contact",
     "content": "contact.json"

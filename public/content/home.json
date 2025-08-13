@@ -1,5 +1,5 @@
 {
-  "heading": "Welcome to My Portfolio",
+  "heading": "Apparel Designer",
   "body": "Here's some info about me.",
-  "images": ["/images/hero.jpg", "/images/about.jpg"]
+  "images": [{ "src": "home-1.jpg", "caption": "" }]
 }

@@ -1,6 +1,8 @@
 {
   "general": {
     "title": "erin bland",
-    "copyright": "Copyright© Erin Bland"
+    "copyright": "Copyright © All rights reserved.",
+    "loading": "Loading...",
+    "not_found": "Page not found."
   }
 }
