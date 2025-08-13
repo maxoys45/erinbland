@@ -1,0 +1,37 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Quicksand", "sans-serif";
+  --tw-ease: ease-in-out;
+  --tw-duration: 0.25s;
+}
+
+@layer base {
+  html {
+    @apply text-gray-600;
+    scrollbar-gutter: stable;
+  }
+
+  body {
+    @apply font-sans;
+
+    &.no-overflow {
+      @apply overflow-hidden;
+    }
+  }
+
+  h1 {
+    @apply text-2xl font-light tracking-[-0.1em] text-gray-700 hover:text-black md:text-3xl;
+  }
+
+  h2 {
+    @apply text-3xl md:text-4xl;
+  }
+
+  a {
+    @apply transition-colors hover:text-black;
+  }
+}
+
+@layer components {
+}

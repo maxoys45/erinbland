@@ -1,0 +1,22 @@
+[
+  {
+    "slug": "home",
+    "title": "Home",
+    "content": "home.json"
+  },
+  {
+    "slug": "final-collection",
+    "title": "Final Collection",
+    "content": "final-collection.json"
+  },
+  {
+    "slug": "follow-on-collection",
+    "title": "Follow on Collection",
+    "content": "follow-on-collection.json"
+  },
+  {
+    "slug": "contact",
+    "title": "Contact",
+    "content": "contact.json"
+  }
+]
