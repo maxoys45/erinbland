@@ -1,5 +1,5 @@
 import { useContext, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import clsx from "clsx";
 
 import AppContext from "../context/appContext";
@@ -43,15 +43,26 @@ const Navbar = () => {
     >
       <div
         className={clsx(
-          "max-md:w-80 max-md:bg-white max-md:px-6 max-md:py-4 max-md:transition-transform max-md:delay-75",
+          "max-md:bg-eb-green-light max-md:w-80 max-md:px-6 max-md:py-4 max-md:shadow-sm max-md:transition-transform max-md:delay-75",
           showMenu ? "max-md:translate-x-0" : "max-md:translate-x-100"
         )}
         ref={sidebarRef}
       >
-        <ul className="flex flex-col gap-2 md:gap-1">
+        <ul className="mt-8 flex flex-col gap-2 md:mt-0">
           {pages.map(({ slug, title }) => (
             <li key={slug}>
-              <Link to={slug === "home" ? "../" : `../${slug}`}>{title}</Link>
+              <NavLink
+                to={slug === "home" ? "../" : `../${slug}`}
+                className={({ isActive }) =>
+                  clsx(
+                    "navlink relative",
+                    isActive &&
+                      "text-black after:opacity-100 md:after:translate-x-0"
+                  )
+                }
+              >
+                {title}
+              </NavLink>
             </li>
           ))}
         </ul>

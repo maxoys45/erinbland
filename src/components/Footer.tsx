@@ -2,7 +2,7 @@ import copy from "../content/copy.json";
 
 const Footer = () => {
   return (
-    <footer className="mt-9 border-t-1 border-t-gray-200 pt-8 pb-8 text-sm leading-none">
+    <footer className="mt-auto border-t-1 border-t-gray-200 py-6 text-sm leading-none max-md:-mx-4 max-md:px-4 md:py-8">
       {copy.general.copyright} {/*new Date().getFullYear()*/}
     </footer>
   );

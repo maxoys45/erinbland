@@ -2,8 +2,11 @@
 
 @theme {
   --font-sans: "Quicksand", "sans-serif";
+  --font-serif: "Gloock", serif;
   --tw-ease: ease-in-out;
   --tw-duration: 0.25s;
+  --color-eb-green: #d3e2de;
+  --color-eb-green-light: #e3f0ed;
 }
 
 @layer base {
@@ -13,19 +16,19 @@
   }
 
   body {
-    @apply font-sans;
+    @apply flex min-h-dvh flex-col font-sans;
 
     &.no-overflow {
       @apply overflow-hidden;
     }
   }
 
-  h1 {
-    @apply text-2xl font-light tracking-[-0.1em] text-gray-700 hover:text-black md:text-3xl lg:text-4xl;
+  #root {
+    @apply flex grow flex-col;
   }
 
-  h2 {
-    @apply text-3xl md:text-4xl;
+  h1 {
+    @apply font-serif text-3xl tracking-widest uppercase md:text-4xl;
   }
 
   a {
@@ -34,4 +37,7 @@
 }
 
 @layer components {
+  .navlink {
+    @apply after:absolute after:top-full after:left-0 after:mt-[2px] after:block after:h-px after:w-screen after:bg-black after:opacity-0 after:transition-[opacity,translate] max-md:after:delay-500 md:after:right-0 md:after:left-auto md:after:translate-x-[-100%] md:after:duration-500;
+  }
 }
