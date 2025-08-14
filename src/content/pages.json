@@ -5,6 +5,11 @@
     "content": "home.json"
   },
   {
+    "slug": "cv",
+    "title": "CV",
+    "content": "cv.json"
+  },
+  {
     "slug": "final-collection",
     "title": "Final Collection",
     "content": "final-collection.json"
@@ -13,6 +18,11 @@
     "slug": "follow-on-collection",
     "title": "Follow on Collection",
     "content": "follow-on-collection.json"
+  },
+  {
+    "slug": "aeo-work",
+    "title": "AEO Work",
+    "content": "aeo-work.json"
   },
   {
     "slug": "media",
