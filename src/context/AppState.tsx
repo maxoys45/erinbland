@@ -9,7 +9,7 @@ const AppState = ({ children }: { children: ReactNode }) => {
   const [state, dispatch] = useReducer(AppReducer, AppInitialState);
 
   const getContent = useCallback((filename: string) => {
-    fetch(`/content/${filename}`)
+    fetch(`/content/${filename}.json`)
       .then((res) => res.json())
       .then((data) => {
         dispatch({

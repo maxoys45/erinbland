@@ -21,7 +21,7 @@ const PageRenderer = ({ slug }: { slug: string }) => {
 
   useEffect(() => {
     // Load content from JSON
-    getContent(pageMeta.content);
+    getContent(pageMeta.slug);
 
     // Close the sidebar
     toggleMenu(true);

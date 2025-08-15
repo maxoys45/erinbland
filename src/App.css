@@ -38,6 +38,6 @@
 
 @layer components {
   .navlink {
-    @apply after:absolute after:top-full after:left-0 after:mt-[2px] after:block after:h-px after:w-screen after:bg-black after:opacity-0 after:transition-[opacity,translate] max-md:after:delay-500 md:after:right-0 md:after:left-auto md:after:translate-x-[-100%] md:after:duration-500;
+    @apply after:absolute after:top-full after:left-0 after:block after:h-px after:w-screen after:bg-black after:opacity-0 after:transition-[opacity,translate] max-md:after:delay-500 md:after:right-0 md:after:left-auto md:after:translate-x-[-100%] md:after:duration-500;
   }
 }

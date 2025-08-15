@@ -43,7 +43,7 @@ const Navbar = () => {
     >
       <div
         className={clsx(
-          "max-md:bg-eb-green-light max-md:w-80 max-md:px-6 max-md:py-4 max-md:shadow-sm max-md:transition-transform max-md:delay-75",
+          "max-md:w-80 max-md:bg-eb-green-light max-md:px-6 max-md:py-4 max-md:shadow-sm max-md:transition-transform max-md:delay-75",
           showMenu ? "max-md:translate-x-0" : "max-md:translate-x-100"
         )}
         ref={sidebarRef}
@@ -55,7 +55,7 @@ const Navbar = () => {
                 to={slug === "home" ? "../" : `../${slug}`}
                 className={({ isActive }) =>
                   clsx(
-                    "navlink relative",
+                    "navlink relative block md:inline-block",
                     isActive &&
                       "text-black after:opacity-100 md:after:translate-x-0"
                   )
