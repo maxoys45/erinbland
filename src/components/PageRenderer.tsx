@@ -39,7 +39,7 @@ const PageRenderer = ({ slug }: { slug: string }) => {
       </div>
     );
 
-  const { heading, body, images } = content;
+  const { heading, body, images, links } = content;
 
   return (
     <article
@@ -54,7 +54,7 @@ const PageRenderer = ({ slug }: { slug: string }) => {
 
       {body && <p className="mx-auto max-w-3xl text-sm md:text-lg">{body}</p>}
 
-      {images?.length > 0 && (
+      {images?.length && (
         <div className="mt-6 flex flex-col items-center gap-10 md:mt-10 md:gap-16">
           {images.map((image, idx) => (
             <figure key={idx}>
@@ -70,6 +70,20 @@ const PageRenderer = ({ slug }: { slug: string }) => {
                 </figcaption>
               )}
             </figure>
+          ))}
+        </div>
+      )}
+
+      {links?.length && (
+        <div className="mt-4">
+          {links.map((link, idx) => (
+            <a
+              className=""
+              key={idx}
+              href={link.includes("@") ? `mailto:${link}` : link}
+            >
+              {link}
+            </a>
           ))}
         </div>
       )}

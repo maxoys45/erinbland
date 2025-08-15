@@ -1,5 +1,6 @@
 {
   "heading": "Contact me",
   "body": "copy",
-  "images": [{ "src": "contact-1.jpg", "caption": "" }]
+  "images": [{ "src": "contact-1.jpg", "caption": "" }],
+  "links": ["erinrachelbland@gmail.com"]
 }

@@ -1,6 +1,8 @@
 export const GET_CONTENT = "GET_CONTENT";
 export const TOGGLE_MENU = "TOGGLE_MENU";
 
+type Link = string;
+
 type Image = {
   src: string;
   caption: string;
@@ -10,6 +12,7 @@ type Content = {
   heading: string;
   body: string;
   images: Image[];
+  links: Link[];
 };
 
 type Menu = boolean;
