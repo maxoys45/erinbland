@@ -1,37 +1,42 @@
 [
   {
     "slug": "home",
-    "title": "Home",
-    "content": "home.json"
+    "title": "Home"
   },
   {
     "slug": "cv",
-    "title": "CV",
-    "content": "cv.json"
+    "title": "CV"
   },
   {
     "slug": "final-collection",
-    "title": "Final Collection",
-    "content": "final-collection.json"
+    "title": "Final Collection"
   },
   {
     "slug": "follow-on-collection",
-    "title": "Follow on Collection",
-    "content": "follow-on-collection.json"
+    "title": "Follow on Collection"
   },
   {
     "slug": "aeo-work",
-    "title": "AEO Work",
-    "content": "aeo-work.json"
+    "title": "AEO Work"
+  },
+  {
+    "slug": "activewear",
+    "title": "Activewear"
+  },
+  {
+    "slug": "the-ultimate-journey",
+    "title": "The Ultimate Journey"
+  },
+  {
+    "slug": "targeted-projects",
+    "title": "Targeted Projects"
   },
   {
     "slug": "media",
-    "title": "Media",
-    "content": "media.json"
+    "title": "Media"
   },
   {
     "slug": "contact",
-    "title": "Contact",
-    "content": "contact.json"
+    "title": "Contact"
   }
 ]
