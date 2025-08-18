@@ -44,12 +44,12 @@ const Navbar = () => {
     >
       <div
         className={clsx(
-          "max-md:w-80 max-md:bg-white max-md:px-6 max-md:py-4 max-md:shadow-sm max-md:transition-transform max-md:delay-75",
+          "flex flex-col max-md:w-80 max-md:bg-white max-md:px-6 max-md:py-6 max-md:shadow-sm max-md:transition-transform max-md:delay-75",
           showMenu ? "max-md:translate-x-0" : "max-md:translate-x-100"
         )}
         ref={sidebarRef}
       >
-        <ul className="mt-8 flex flex-col gap-2 md:mt-0">
+        <ul className="mt-8 mb-auto flex flex-col gap-2 md:mt-0">
           {pages.map(({ slug, title }) => (
             <li key={slug}>
               <NavLink
