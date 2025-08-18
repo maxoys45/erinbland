@@ -1,6 +1,6 @@
-import { type Header } from "../context/types";
+import { type Header as HeaderType } from "../context/types";
 
-const HeaderBlock = ({ header }: { header: Header }) => {
+const HeaderBlock = ({ header }: { header: HeaderType }) => {
   const { title, description } = header;
 
   return (

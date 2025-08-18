@@ -7,10 +7,10 @@ import type { AppContextType } from "../context/types";
 import pages from "../content/pages.json";
 import copy from "../content/copy.json";
 
-import HeaderBlock from "./HeaderBlock";
-import ImagesBlock from "./ImagesBlock";
-import ImageTextBlock from "./ImageTextBlock";
-import LinksBlock from "./LinksBlock";
+import Header from "./Header";
+import Images from "./Images";
+import ImageText from "./ImageText";
+import Links from "./Links";
 
 import Spinner from "../assets/spinner.svg?react";
 
@@ -53,13 +53,13 @@ const PageRenderer = ({ slug }: { slug: string }) => {
         isVisible ? "opacity-100 transition-opacity duration-400" : "opacity-0"
       )}
     >
-      {header && <HeaderBlock header={header} />}
+      {header && <Header header={header} />}
 
-      {images?.length && <ImagesBlock slug={slug} images={images} />}
+      {images?.length && <Images slug={slug} images={images} />}
 
-      {image_text && <ImageTextBlock slug={slug} image_text={image_text} />}
+      {image_text && <ImageText slug={slug} image_text={image_text} />}
 
-      {links?.length && <LinksBlock links={links} />}
+      {links?.length && <Links links={links} />}
     </article>
   );
 };
