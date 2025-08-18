@@ -1,5 +1,11 @@
 {
-  "heading": "Apparel Designer",
-  "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, molestias illum aperiam perspiciatis quae reprehenderit accusamus sint doloribus eum molestiae quos consequuntur placeat earum repellat beatae nisi pariatur natus tempore officiis voluptatibus optio debitis laborum libero adipisci! Voluptates, tempore unde. Cum exercitationem sint enim fuga nisi.",
-  "images": [{ "src": "home-1.jpg", "caption": "" }]
+  "header": {
+    "title": "Apparel Designer",
+    "description": "Originally from the North East of England, Erin is an apparel designer with specialised experience in Sweater Design. Recently relocated from New York City back to the UK."
+  },
+  "images": [{ "src": "home-1.jpg", "text": "" }],
+  "image_text": {
+    "src": "home-erin.jpg",
+    "text": "Erin is an experienced designer with a demonstrated history of working in the retail industry, having worked at American Eagle Outfitters in the Men's Sweaters department for almost seven years. Skilled in Retail, Fashion Illustration, Textiles, Knitwear, and Draping. She is a strong arts and design professional with a Bachelor of Arts (BA) focused in Fashion/Apparel Design from Northumbria University.\n\n​In her free time Erin enjoys surfing, traveling and reading."
+  }
 }

@@ -7,6 +7,11 @@ import type { AppContextType } from "../context/types";
 import pages from "../content/pages.json";
 import copy from "../content/copy.json";
 
+import HeaderBlock from "./HeaderBlock";
+import ImagesBlock from "./ImagesBlock";
+import ImageTextBlock from "./ImageTextBlock";
+import LinksBlock from "./LinksBlock";
+
 import Spinner from "../assets/spinner.svg?react";
 
 const PageRenderer = ({ slug }: { slug: string }) => {
@@ -39,54 +44,22 @@ const PageRenderer = ({ slug }: { slug: string }) => {
       </div>
     );
 
-  const { heading, body, images, links } = content;
+  const { header, images, image_text, links } = content;
 
   return (
     <article
       className={clsx(
-        "mb-10 flex flex-col items-center text-center",
+        "mb-10 flex grow flex-col items-center",
         isVisible ? "opacity-100 transition-opacity duration-400" : "opacity-0"
       )}
     >
-      <title>{`Erin Bland - ${heading}`}</title>
+      {header && <HeaderBlock header={header} />}
 
-      {heading && <h1 className="mb-4">{heading}</h1>}
+      {images?.length && <ImagesBlock slug={slug} images={images} />}
 
-      {body && <p className="mx-auto max-w-3xl text-sm md:text-lg">{body}</p>}
+      {image_text && <ImageTextBlock slug={slug} image_text={image_text} />}
 
-      {images?.length && (
-        <div className="mt-6 flex flex-col items-center gap-10 md:mt-10 md:gap-16">
-          {images.map((image, idx) => (
-            <figure key={idx}>
-              <img
-                className="max-w-full shadow"
-                src={`/images/${slug}/${image.src}`}
-                alt={image.caption}
-                loading="lazy"
-              />
-              {image.caption && (
-                <figcaption className="pt-3 whitespace-pre-line max-md:text-sm">
-                  {image.caption}
-                </figcaption>
-              )}
-            </figure>
-          ))}
-        </div>
-      )}
-
-      {links?.length && (
-        <div className="mt-4">
-          {links.map((link, idx) => (
-            <a
-              className=""
-              key={idx}
-              href={link.includes("@") ? `mailto:${link}` : link}
-            >
-              {link}
-            </a>
-          ))}
-        </div>
-      )}
+      {links?.length && <LinksBlock links={links} />}
     </article>
   );
 };

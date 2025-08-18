@@ -1,6 +1,8 @@
 {
-  "heading": "Contact me",
-  "body": "copy",
-  "images": [{ "src": "contact-1.jpg", "caption": "" }],
-  "links": ["erinrachelbland@gmail.com"]
+  "header": { "title": "Contact me", "description": "copy" },
+  "images": [{ "src": "contact-1.jpg", "text": "" }],
+  "links": [
+    { "url": "erinrachelbland@gmail.com", "text": "erinrachelbland@gmail.com" },
+    { "url": "https://www.linkedin.com/in/erin-bland", "text": "LinkedIn" }
+  ]
 }

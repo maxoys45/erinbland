@@ -1,25 +1,38 @@
 export const GET_CONTENT = "GET_CONTENT";
 export const TOGGLE_MENU = "TOGGLE_MENU";
 
-type Link = string;
+// type Content = {
+//   heading: string;
+//   body: string;
+//   images: Image[];
+//   links: string[];
+// };
 
-type Image = {
+export type Header = {
+  title: string;
+  description?: string;
+};
+
+export type Image = {
   src: string;
-  caption: string;
+  text: string;
+};
+
+export type Link = {
+  url: string;
+  text: string;
 };
 
 type Content = {
-  heading: string;
-  body: string;
-  images: Image[];
-  links: Link[];
+  header?: Header;
+  images?: Image[];
+  image_text?: Image;
+  links?: Link[];
 };
-
-type Menu = boolean;
 
 export type AppStateType = {
   content: Content | null;
-  showMenu: Menu;
+  showMenu: boolean;
 };
 
 export type AppContextType = AppStateType & {
@@ -40,4 +53,4 @@ export const AppInitialContext: AppContextType = {
 
 export type ContentAction =
   | { type: typeof GET_CONTENT; payload: Content }
-  | { type: typeof TOGGLE_MENU; payload: Menu };
+  | { type: typeof TOGGLE_MENU; payload: boolean };

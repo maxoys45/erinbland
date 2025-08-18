@@ -1,5 +1,4 @@
 {
-  "heading": "CV",
-  "body": "",
-  "images": [{ "src": "cv-1.jpg", "caption": "" }]
+  "header": { "title": "CV", "description": "" },
+  "images": [{ "src": "cv-1.jpg", "text": "" }]
 }

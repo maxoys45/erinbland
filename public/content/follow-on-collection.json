@@ -1,12 +1,14 @@
 {
-  "heading": "Follow on Collection",
-  "body": "This is a short description explaining the collection.",
+  "header": {
+    "title": "Follow on Collection",
+    "description": "This is a short description explaining the collection."
+  },
   "images": [
-    { "src": "follow-on-collection-1.jpg", "caption": "" },
-    { "src": "follow-on-collection-2.jpg", "caption": "" },
-    { "src": "follow-on-collection-3.jpg", "caption": "" },
-    { "src": "follow-on-collection-4.jpg", "caption": "" },
-    { "src": "follow-on-collection-5.jpg", "caption": "" },
-    { "src": "follow-on-collection-6.jpg", "caption": "" }
+    { "src": "follow-on-collection-1.jpg", "text": "" },
+    { "src": "follow-on-collection-2.jpg", "text": "" },
+    { "src": "follow-on-collection-3.jpg", "text": "" },
+    { "src": "follow-on-collection-4.jpg", "text": "" },
+    { "src": "follow-on-collection-5.jpg", "text": "" },
+    { "src": "follow-on-collection-6.jpg", "text": "" }
   ]
 }

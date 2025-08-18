@@ -1,15 +1,17 @@
 {
-  "heading": "Final Collection",
-  "body": "This is a short description explaining the collection.",
+  "header": {
+    "title": "Final Collection",
+    "description": "This is a short description explaining the collection."
+  },
   "images": [
-    { "src": "1coverpage.jpg", "caption": "" },
-    { "src": "2designtheme-2.jpg", "caption": "" },
-    { "src": "3processpage2.jpg", "caption": "" },
-    { "src": "4musecustomer.jpg", "caption": "" },
-    { "src": "5colourboard.jpg", "caption": "" },
-    { "src": "6look1flatsc.jpg", "caption": "" },
-    { "src": "7collectionrange.jpg", "caption": "" },
-    { "src": "8lineup2.jpg", "caption": "" },
-    { "src": "9lineup.jpg", "caption": "" }
+    { "src": "1coverpage.jpg", "text": "" },
+    { "src": "2designtheme-2.jpg", "text": "" },
+    { "src": "3processpage2.jpg", "text": "" },
+    { "src": "4musecustomer.jpg", "text": "" },
+    { "src": "5colourboard.jpg", "text": "" },
+    { "src": "6look1flatsc.jpg", "text": "" },
+    { "src": "7collectionrange.jpg", "text": "" },
+    { "src": "8lineup2.jpg", "text": "" },
+    { "src": "9lineup.jpg", "text": "" }
   ]
 }
