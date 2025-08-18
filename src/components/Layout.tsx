@@ -19,30 +19,26 @@ const Layout = () => {
   }, [showMenu]);
 
   return (
-    <div className="flex grow bg-gray-50">
-      <div className="container mx-auto flex grow px-4">
-        <div className="flex grow max-md:flex-col md:gap-10 lg:gap-16">
-          <header className="sticky top-0 shrink-0 bg-eb-green-light pt-4 max-md:-mx-4 max-md:flex max-md:items-center max-md:justify-between max-md:px-4 max-md:pb-4 md:h-screen md:pt-8 md:pr-10 md:before:absolute md:before:top-0 md:before:right-0 md:before:bottom-0 md:before:-z-1 md:before:block md:before:h-full md:before:w-[500%] md:before:bg-eb-green lg:pt-14">
-            <p className="text-3xl leading-none font-light tracking-[-0.1em] text-gray-700 hover:text-black md:mb-8 lg:text-4xl">
-              <Link to="../">{copy.general.brand_name}</Link>
-            </p>
+    <div className="flex grow flex-col bg-gray-50 md:flex-row">
+      <header className="sticky top-0 shrink-0 bg-eb-green-light px-4 py-4 max-md:flex max-md:items-center max-md:justify-between md:h-screen md:px-10 md:pt-8 md:before:absolute md:before:top-0 md:before:right-0 md:before:bottom-0 md:before:-z-1 md:before:block md:before:h-full md:before:w-[500%] md:before:bg-eb-green lg:px-16 lg:pt-14">
+        <p className="text-3xl leading-none font-light tracking-[-0.1em] text-gray-700 hover:text-black md:mb-8 lg:text-4xl">
+          <Link to="../">{copy.general.brand_name}</Link>
+        </p>
 
-            <button
-              className="h-[30px] w-[30px] cursor-pointer p-[2px] md:hidden"
-              onClick={() => toggleMenu(showMenu)}
-            >
-              <Burger fill="#666" />
-            </button>
+        <button
+          className="h-[30px] w-[30px] cursor-pointer p-[2px] md:hidden"
+          onClick={() => toggleMenu(showMenu)}
+        >
+          <Burger fill="#666" />
+        </button>
 
-            <Navbar />
-          </header>
+        <Navbar />
+      </header>
 
-          <div className="flex grow flex-col pt-6 md:pt-8 lg:pt-14">
-            <Outlet />
+      <div className="container mx-auto flex grow flex-col px-4 pt-6 md:px-10 md:pt-8 lg:px-14 lg:pt-14">
+        <Outlet />
 
-            <Footer />
-          </div>
-        </div>
+        <Footer />
       </div>
     </div>
   );
