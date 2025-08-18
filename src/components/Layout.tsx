@@ -22,7 +22,7 @@ const Layout = () => {
     <div className="flex grow bg-gray-50">
       <div className="container mx-auto flex grow px-4">
         <div className="flex grow max-md:flex-col md:gap-10 lg:gap-16">
-          <header className="sticky top-0 shrink-0 bg-eb-green pt-4 max-md:-mx-4 max-md:flex max-md:items-center max-md:justify-between max-md:px-4 max-md:pb-4 md:h-screen md:pt-8 md:pr-10 md:before:absolute md:before:top-0 md:before:right-0 md:before:bottom-0 md:before:-z-1 md:before:block md:before:h-full md:before:w-[500%] md:before:bg-eb-green lg:pt-14">
+          <header className="sticky top-0 shrink-0 bg-eb-green-light pt-4 max-md:-mx-4 max-md:flex max-md:items-center max-md:justify-between max-md:px-4 max-md:pb-4 md:h-screen md:pt-8 md:pr-10 md:before:absolute md:before:top-0 md:before:right-0 md:before:bottom-0 md:before:-z-1 md:before:block md:before:h-full md:before:w-[500%] md:before:bg-eb-green lg:pt-14">
             <p className="text-3xl leading-none font-light tracking-[-0.1em] text-gray-700 hover:text-black md:mb-8 lg:text-4xl">
               <Link to="../">{copy.general.brand_name}</Link>
             </p>
