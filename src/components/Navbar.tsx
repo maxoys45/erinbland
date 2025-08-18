@@ -8,6 +8,7 @@ import type { AppContextType } from "../context/types";
 import pages from "../content/pages.json";
 
 import Close from "../assets/cross.svg?react";
+import LinkedIn from "../assets/linkedin.svg?react";
 
 const Navbar = () => {
   const { showMenu, toggleMenu } = useContext<AppContextType>(AppContext);
@@ -73,6 +74,19 @@ const Navbar = () => {
         >
           <Close fill="#666" />
         </button>
+
+        <div className="mt-8 flex items-center gap-2">
+          <a
+            className="block"
+            href="https://www.linkedin.com/in/erin-bland"
+            target="_blank"
+          >
+            <LinkedIn
+              width="20"
+              className="fill-gray-600 transition-[fill] hover:fill-black"
+            />
+          </a>
+        </div>
       </div>
     </nav>
   );
