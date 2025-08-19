@@ -1,4 +1,4 @@
-import { type Image } from "../context/types";
+import { type Image } from "../@types/context";
 
 const ImageTextBlock = ({
   slug,

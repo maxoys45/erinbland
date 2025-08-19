@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import clsx from "clsx";
 
 import AppContext from "../context/appContext";
-import type { AppContextType } from "../context/types";
+import type { AppContextType } from "../@types/context";
 
 import pages from "../content/pages.json";
 import copy from "../content/copy.json";
@@ -13,6 +13,8 @@ import ImageText from "./ImageText";
 import Links from "./Links";
 
 import Spinner from "../assets/spinner.svg?react";
+
+import { client } from "../contentful";
 
 const PageRenderer = ({ slug }: { slug: string }) => {
   const { content, getContent, toggleMenu } =
@@ -36,6 +38,12 @@ const PageRenderer = ({ slug }: { slug: string }) => {
     const timeout = setTimeout(() => setIsVisible(true), 50);
     return () => clearTimeout(timeout);
   }, [slug]);
+
+  useEffect(() => {
+    client.getEntries({ content_type: "portfolioPage" }).then((res) => {
+      console.log(res.items);
+    });
+  }, []);
 
   if (!content)
     return (

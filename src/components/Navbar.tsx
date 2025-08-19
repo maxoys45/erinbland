@@ -1,17 +1,19 @@
-import { useContext, useEffect, useRef } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { NavLink } from "react-router-dom";
 import clsx from "clsx";
+import slugify from "slugify";
 
 import AppContext from "../context/appContext";
-import type { AppContextType } from "../context/types";
-
-import pages from "../content/pages.json";
+import type { AppContextType } from "../@types/context";
 
 import Close from "../assets/cross.svg?react";
 import LinkedIn from "../assets/linkedin.svg?react";
 
+import { client } from "../contentful";
+
 const Navbar = () => {
   const { showMenu, toggleMenu } = useContext<AppContextType>(AppContext);
+  const [nav, setNav] = useState<string[] | null>(null);
   const sidebarRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -23,6 +25,13 @@ const Navbar = () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [showMenu]);
+
+  useEffect(() => {
+    client.getEntry("7I2P9IqV81EHsBpN4woXTR").then((entry) => {
+      console.log(entry);
+      setNav(entry.fields.title);
+    });
+  }, []);
 
   const handleClickOutside = (event: MouseEvent) => {
     if (
@@ -50,22 +59,27 @@ const Navbar = () => {
         ref={sidebarRef}
       >
         <ul className="mt-8 mb-auto flex flex-col gap-2 md:mt-0">
-          {pages.map(({ slug, title }) => (
-            <li key={slug}>
-              <NavLink
-                to={slug === "home" ? "../" : `../${slug}`}
-                className={({ isActive }) =>
-                  clsx(
-                    "navlink relative block md:inline-block",
-                    isActive &&
-                      "text-black after:opacity-100 md:after:translate-x-0"
-                  )
-                }
-              >
-                {title}
-              </NavLink>
-            </li>
-          ))}
+          {nav &&
+            nav.map((title) => {
+              const url = slugify(title, { lower: true });
+
+              return (
+                <li key={url}>
+                  <NavLink
+                    to={url === "about" ? "../" : `../${url}`}
+                    className={({ isActive }) =>
+                      clsx(
+                        "navlink relative block md:inline-block",
+                        isActive &&
+                          "text-black after:opacity-100 md:after:translate-x-0"
+                      )
+                    }
+                  >
+                    {title}
+                  </NavLink>
+                </li>
+              );
+            })}
         </ul>
 
         <button

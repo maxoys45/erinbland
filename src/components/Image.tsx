@@ -1,7 +1,7 @@
 import { useState } from "react";
 import clsx from "clsx";
 
-import { type Image as ImageType } from "../context/types";
+import { type Image as ImageType } from "../@types/context";
 
 // import Spinner from "../assets/spinner.svg?react";
 

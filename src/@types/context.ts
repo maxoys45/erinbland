@@ -1,13 +1,6 @@
 export const GET_CONTENT = "GET_CONTENT";
 export const TOGGLE_MENU = "TOGGLE_MENU";
 
-// type Content = {
-//   heading: string;
-//   body: string;
-//   images: Image[];
-//   links: string[];
-// };
-
 export type Header = {
   title: string;
   description?: string;

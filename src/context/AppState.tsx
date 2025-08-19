@@ -3,7 +3,7 @@ import { useReducer, useCallback, type ReactNode } from "react";
 import AppContext from "./appContext";
 import AppReducer from "./appReducer";
 
-import { AppInitialState, GET_CONTENT, TOGGLE_MENU } from "./types";
+import { AppInitialState, GET_CONTENT, TOGGLE_MENU } from "../@types/context";
 
 const AppState = ({ children }: { children: ReactNode }) => {
   const [state, dispatch] = useReducer(AppReducer, AppInitialState);

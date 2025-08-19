@@ -1,6 +1,6 @@
 import { createContext } from "react";
 
-import { type AppContextType, AppInitialContext } from "./types";
+import { type AppContextType, AppInitialContext } from "../@types/context";
 
 const AppContext = createContext<AppContextType>(AppInitialContext);
 

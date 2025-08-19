@@ -1,4 +1,4 @@
-import { type Link } from "../context/types";
+import { type Link } from "../@types/context";
 
 const LinksBlock = ({ links }: { links: Link[] }) => {
   return (

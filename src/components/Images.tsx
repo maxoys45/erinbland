@@ -1,4 +1,4 @@
-import { type Image as ImageType } from "../context/types";
+import { type Image as ImageType } from "../@types/context";
 
 import Image from "./Image";
 

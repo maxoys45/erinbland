@@ -3,7 +3,7 @@ import {
   TOGGLE_MENU,
   type ContentAction,
   type AppStateType,
-} from "./types";
+} from "../@types/context";
 
 const AppReducer = (
   state: AppStateType,

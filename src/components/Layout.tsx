@@ -2,7 +2,7 @@ import { useContext, useEffect } from "react";
 import { Link, Outlet } from "react-router-dom";
 
 import AppContext from "../context/appContext";
-import type { AppContextType } from "../context/types";
+import type { AppContextType } from "../@types/context";
 
 import Navbar from "./Navbar";
 import Footer from "./Footer";
