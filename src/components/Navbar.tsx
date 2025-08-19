@@ -5,15 +5,16 @@ import slugify from "slugify";
 
 import AppContext from "../context/appContext";
 import type { AppContextType } from "../@types/context";
+import type { NavItems } from "../@types/sanity";
 
 import Close from "../assets/cross.svg?react";
 import LinkedIn from "../assets/linkedin.svg?react";
 
-import { client } from "../contentful";
+import { client } from "../sanityClient";
 
 const Navbar = () => {
   const { showMenu, toggleMenu } = useContext<AppContextType>(AppContext);
-  const [nav, setNav] = useState<string[] | null>(null);
+  const [nav, setNav] = useState<NavItems>([]);
   const sidebarRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -27,10 +28,13 @@ const Navbar = () => {
   }, [showMenu]);
 
   useEffect(() => {
-    client.getEntry("7I2P9IqV81EHsBpN4woXTR").then((entry) => {
-      console.log(entry);
-      setNav(entry.fields.title);
-    });
+    client
+      .fetch<NavItems>(`*[_type == "navigation"][0].items`)
+      .then((data) => {
+        console.log(data);
+        setNav(data);
+      })
+      .catch((err) => console.error(err));
   }, []);
 
   const handleClickOutside = (event: MouseEvent) => {
@@ -60,8 +64,8 @@ const Navbar = () => {
       >
         <ul className="mt-8 mb-auto flex flex-col gap-2 md:mt-0">
           {nav &&
-            nav.map((title) => {
-              const url = slugify(title, { lower: true });
+            nav.map((item) => {
+              const url = slugify(item, { lower: true });
 
               return (
                 <li key={url}>
@@ -75,7 +79,7 @@ const Navbar = () => {
                       )
                     }
                   >
-                    {title}
+                    {item}
                   </NavLink>
                 </li>
               );
