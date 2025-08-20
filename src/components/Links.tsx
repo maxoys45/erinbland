@@ -8,6 +8,7 @@ const LinksBlock = ({ links }: { links: Link[] }) => {
           className=""
           key={idx}
           href={link.url.includes("@") ? `mailto:${link.url}` : link.url}
+          target="_blank"
         >
           {link.text}
         </a>
