@@ -14,7 +14,7 @@ const Image = ({ image }: { image: ImageType }) => {
 
       <div
         className={clsx(
-          "overflow-hidden transition-opacity",
+          "flex justify-center overflow-hidden transition-opacity",
           loading ? "h-[0] w-full pb-[130%] opacity-0" : "opacity-100"
         )}
       >
