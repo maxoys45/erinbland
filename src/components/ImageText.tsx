@@ -1,12 +1,6 @@
 import { type Image } from "../@types/context";
 
-const ImageTextBlock = ({
-  slug,
-  image_text,
-}: {
-  slug: string;
-  image_text: Image;
-}) => {
+const ImageTextBlock = ({ contentBlock }: { contentBlock: Image }) => {
   return (
     <>
       <hr className="my-10 h-px w-full border-0 bg-gray-300 md:my-16" />
@@ -15,15 +9,15 @@ const ImageTextBlock = ({
         <figure>
           <img
             className="max-w-full shadow"
-            src={`/images/${slug}/${image_text.src}`}
-            alt={image_text.text}
+            src={contentBlock.src}
+            alt={contentBlock.caption}
             loading="lazy"
           />
         </figure>
 
-        {image_text.text && (
+        {contentBlock.caption && (
           <p className="whitespace-pre-line max-md:text-sm">
-            {image_text.text}
+            {contentBlock.caption}
           </p>
         )}
       </div>

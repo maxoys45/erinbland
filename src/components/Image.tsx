@@ -5,11 +5,11 @@ import { type Image as ImageType } from "../@types/context";
 
 // import Spinner from "../assets/spinner.svg?react";
 
-const Image = ({ slug, image }: { slug: string; image: ImageType }) => {
+const Image = ({ image }: { image: ImageType }) => {
   const [loading, setLoading] = useState<boolean>(true);
 
   return (
-    <figure className="relative flex w-full grow items-center justify-center">
+    <figure className="relative flex w-full grow flex-col justify-center">
       {/* {loading && (
         <Spinner
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
@@ -23,13 +23,13 @@ const Image = ({ slug, image }: { slug: string; image: ImageType }) => {
           "relative max-w-full overflow-hidden shadow",
           loading ? "h-[0] w-full pb-[130%] opacity-0" : "opacity-100"
         )}
-        src={`/images/${slug}/${image.src}`}
-        alt={image.text}
+        src={image.src}
+        alt={image.caption}
         onLoad={() => setLoading(false)}
       />
-      {image.text && (
+      {image.caption && (
         <figcaption className="pt-3 whitespace-pre-line max-md:text-sm">
-          {image.text}
+          {image.caption}
         </figcaption>
       )}
     </figure>

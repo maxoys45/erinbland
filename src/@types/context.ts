@@ -1,14 +1,10 @@
 export const GET_CONTENT = "GET_CONTENT";
 export const TOGGLE_MENU = "TOGGLE_MENU";
-
-export type Header = {
-  title: string;
-  description?: string;
-};
+export const SET_LOADING = "SET_LOADING";
 
 export type Image = {
   src: string;
-  text: string;
+  caption: string;
 };
 
 export type Link = {
@@ -17,15 +13,17 @@ export type Link = {
 };
 
 type Content = {
-  header?: Header;
+  title: string;
+  description?: string;
   images?: Image[];
-  image_text?: Image;
+  contentBlock?: Image;
   links?: Link[];
 };
 
 export type AppStateType = {
   content: Content | null;
   showMenu: boolean;
+  loading: boolean;
 };
 
 export type AppContextType = AppStateType & {
@@ -36,6 +34,7 @@ export type AppContextType = AppStateType & {
 export const AppInitialState: AppStateType = {
   content: null,
   showMenu: false,
+  loading: false,
 };
 
 export const AppInitialContext: AppContextType = {
@@ -46,4 +45,5 @@ export const AppInitialContext: AppContextType = {
 
 export type ContentAction =
   | { type: typeof GET_CONTENT; payload: Content }
-  | { type: typeof TOGGLE_MENU; payload: boolean };
+  | { type: typeof TOGGLE_MENU; payload: boolean }
+  | { type: typeof SET_LOADING };

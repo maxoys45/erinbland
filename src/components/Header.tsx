@@ -1,8 +1,12 @@
-import { type Header as HeaderType } from "../@types/context";
+// import { type Header as HeaderType } from "../@types/context";
 
-const HeaderBlock = ({ header }: { header: HeaderType }) => {
-  const { title, description } = header;
-
+const HeaderBlock = ({
+  title,
+  description,
+}: {
+  title: string;
+  description?: string;
+}) => {
   return (
     <>
       <title>{`Erin Bland${title && ` - ${title}`}`}</title>

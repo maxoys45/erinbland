@@ -1,6 +1,7 @@
 import {
   GET_CONTENT,
   TOGGLE_MENU,
+  SET_LOADING,
   type ContentAction,
   type AppStateType,
 } from "../@types/context";
@@ -14,12 +15,19 @@ const AppReducer = (
       return {
         ...state,
         content: action.payload,
+        loading: false,
       };
 
     case TOGGLE_MENU:
       return {
         ...state,
         showMenu: action.payload,
+      };
+
+    case SET_LOADING:
+      return {
+        ...state,
+        loading: true,
       };
 
     default:

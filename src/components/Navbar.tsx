@@ -7,14 +7,14 @@ import AppContext from "../context/appContext";
 import type { AppContextType } from "../@types/context";
 import type { NavItems } from "../@types/sanity";
 
+import { client } from "../sanityClient";
+
 import Close from "../assets/cross.svg?react";
 import LinkedIn from "../assets/linkedin.svg?react";
 
-import { client } from "../sanityClient";
-
 const Navbar = () => {
   const { showMenu, toggleMenu } = useContext<AppContextType>(AppContext);
-  const [nav, setNav] = useState<NavItems>([]);
+  const [nav, setNav] = useState<NavItems>(null);
   const sidebarRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -31,7 +31,6 @@ const Navbar = () => {
     client
       .fetch<NavItems>(`*[_type == "navigation"][0].items`)
       .then((data) => {
-        console.log(data);
         setNav(data);
       })
       .catch((err) => console.error(err));
