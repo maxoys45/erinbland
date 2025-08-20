@@ -9,13 +9,6 @@ const ImageTextBlock = ({ contentBlock }: { contentBlock: ImageType }) => {
 
       <div className="grid items-center gap-4 xl:grid-cols-2 xl:gap-10">
         <figure className="relative">
-          <img
-            className="max-w-full shadow"
-            src={contentBlock.src}
-            alt={contentBlock.caption}
-            loading="lazy"
-          />
-
           <Image image={contentBlock} key={contentBlock.src} />
         </figure>
 
