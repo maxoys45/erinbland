@@ -1,18 +1,22 @@
-import { type Image } from "../@types/context";
+import type { Image as ImageType } from "../@types/context";
 
-const ImageTextBlock = ({ contentBlock }: { contentBlock: Image }) => {
+import Image from "./Image";
+
+const ImageTextBlock = ({ contentBlock }: { contentBlock: ImageType }) => {
   return (
     <>
       <hr className="my-10 h-px w-full border-0 bg-gray-300 md:my-16" />
 
       <div className="grid items-center gap-4 xl:grid-cols-2 xl:gap-10">
-        <figure>
+        <figure className="relative">
           <img
             className="max-w-full shadow"
             src={contentBlock.src}
             alt={contentBlock.caption}
             loading="lazy"
           />
+
+          <Image image={contentBlock} key={contentBlock.src} />
         </figure>
 
         {contentBlock.caption && (

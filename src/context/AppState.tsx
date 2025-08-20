@@ -6,6 +6,7 @@ import AppReducer from "./appReducer";
 import {
   AppInitialState,
   GET_CONTENT,
+  CLEAR_CONTENT,
   TOGGLE_MENU,
   SET_LOADING,
 } from "../@types/context";
@@ -18,6 +19,7 @@ const AppState = ({ children }: { children: ReactNode }) => {
   // Retrieve the page content from Sanity.
   const getContent = useCallback(async (slug: string) => {
     setLoading();
+    clearContent();
 
     const query = `
       *[_type == "page" && slug.current == $slug][0] {
@@ -56,7 +58,10 @@ const AppState = ({ children }: { children: ReactNode }) => {
     });
   };
 
-  // Set Loading
+  // Clear content
+  const clearContent = () => dispatch({ type: CLEAR_CONTENT });
+
+  // Set loading
   const setLoading = () => dispatch({ type: SET_LOADING });
 
   return (

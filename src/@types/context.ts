@@ -1,5 +1,6 @@
 export const GET_CONTENT = "GET_CONTENT";
 export const TOGGLE_MENU = "TOGGLE_MENU";
+export const CLEAR_CONTENT = "CLEAR_CONTENT";
 export const SET_LOADING = "SET_LOADING";
 
 export type Image = {
@@ -45,5 +46,6 @@ export const AppInitialContext: AppContextType = {
 
 export type ContentAction =
   | { type: typeof GET_CONTENT; payload: Content }
+  | { type: typeof CLEAR_CONTENT }
   | { type: typeof TOGGLE_MENU; payload: boolean }
   | { type: typeof SET_LOADING };

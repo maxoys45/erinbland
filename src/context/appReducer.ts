@@ -1,5 +1,6 @@
 import {
   GET_CONTENT,
+  CLEAR_CONTENT,
   TOGGLE_MENU,
   SET_LOADING,
   type ContentAction,
@@ -16,6 +17,12 @@ const AppReducer = (
         ...state,
         content: action.payload,
         loading: false,
+      };
+
+    case CLEAR_CONTENT:
+      return {
+        ...state,
+        content: null,
       };
 
     case TOGGLE_MENU:

@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import PageRenderer from "../components/PageRenderer";
 
-import Spinner from "../assets/spinner.svg?react";
+import Spinner from "./Spinner";
 
 const DynamicPage = () => {
   const { slug } = useParams();
@@ -9,7 +9,7 @@ const DynamicPage = () => {
   if (!slug)
     return (
       <div className="mt-10 flex grow justify-center">
-        <Spinner width="30" height="30" />
+        <Spinner />
       </div>
     );
 

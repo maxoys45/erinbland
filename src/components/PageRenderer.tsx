@@ -9,11 +9,12 @@ import Images from "./Images";
 import ImageText from "./ImageText";
 import Links from "./Links";
 
-import Spinner from "../assets/spinner.svg?react";
+import Spinner from "./Spinner";
 
 const PageRenderer = ({ slug }: { slug: string }) => {
   const { content, loading, getContent, toggleMenu } =
     useContext<AppContextType>(AppContext);
+  const [localContent, setLocalContent] = useState<typeof content>(null);
 
   useEffect(() => {
     // Close the sidebar
@@ -23,14 +24,20 @@ const PageRenderer = ({ slug }: { slug: string }) => {
     getContent(slug);
   }, [slug]);
 
-  if (!content)
+  useEffect(() => {
+    if (!loading && content) {
+      setLocalContent(content);
+    }
+  }, [loading, content]);
+
+  if (!localContent)
     return (
       <div className="mt-10 flex grow justify-center">
-        <Spinner width="30" height="30" />
+        <Spinner />
       </div>
     );
 
-  const { title, description, images, contentBlock, links } = content;
+  const { title, description, images, contentBlock, links } = localContent;
 
   return (
     <article
