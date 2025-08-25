@@ -1,46 +1,55 @@
-import { useState } from "react";
 import clsx from "clsx";
 
 import { type Image as ImageType } from "../@types/context";
 
 import Spinner from "./Spinner";
 
-const Image = ({ image }: { image: ImageType }) => {
-  const [loading, setLoading] = useState<boolean>(true);
+type ImageProps = {
+  image: ImageType;
+  loading: boolean;
+  setLoading: React.Dispatch<React.SetStateAction<boolean>>;
+};
 
+const Image = ({ image, loading, setLoading }: ImageProps) => {
   return (
     <>
-      {loading && <Spinner />}
-
-      <div
+      <picture
         className={clsx(
-          "flex justify-center overflow-hidden transition-opacity",
+          "flex grow justify-center overflow-hidden transition-opacity",
           loading ? "h-[0] w-full pb-[130%] opacity-0" : "opacity-100"
         )}
       >
-        <img
-          className="max-w-full shadow"
-          src={`${image.src}?w=1420&auto=format&q=80`}
+        <source
+          media="(max-width: 767px)"
           srcSet={`
-            ${image.src}?w=610&auto=format&q=80 610w,
-            ${image.src}?w=690&auto=format&q=80 690w,
-            ${image.src}?w=1420&auto=format&q=80 1420w
-          `}
-          sizes="
-            (min-width: 1024px) 1420px,
-            (min-width: 768px) 690px,
-            610px"
-          alt=""
-          onLoad={() => setLoading(false)}
+              ${image.src}?w=610&fit=max&auto=format&q=90 1x,
+              ${image.src}?w=1220&fit=max&auto=format&q=90 2x,
+              ${image.src}?w=1830&fit=max&auto=format&q=90 3x
+            `}
         />
 
-        {/*  <img
-          className="max-w-full shadow"
-          src={image.src}
+        <source
+          media="(max-width: 1023px)"
+          srcSet={`
+              ${image.src}?w=690&fit=max&auto=format&q=90 1x,
+              ${image.src}?w=1380&fit=max&auto=format&q=90 2x
+            `}
+        />
+
+        <img
+          src={`${image.src}?w=1420&fit=max&auto=format&q=90`}
+          srcSet={`
+              ${image.src}?w=1420&fit=max&auto=format&q=90 1x,
+              ${image.src}?w=2840&fit=max&auto=format&q=90 2x
+            `}
           alt=""
+          className="max-w-full shadow"
           onLoad={() => setLoading(false)}
-        /> */}
-      </div>
+          loading="lazy"
+        />
+      </picture>
+
+      {loading && <Spinner />}
     </>
   );
 };
