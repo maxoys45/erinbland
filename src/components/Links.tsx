@@ -1,6 +1,6 @@
-import { type Link } from "../@types/context";
+import { type Link as LinkType } from "../@types/context";
 
-const LinksBlock = ({ links }: { links: Link[] }) => {
+const Links = ({ links }: { links: LinkType[] }) => {
   return (
     <div className="mt-4 flex flex-col items-center gap-2 md:mt-8">
       {links.map((link, idx) => (
@@ -17,4 +17,4 @@ const LinksBlock = ({ links }: { links: Link[] }) => {
   );
 };
 
-export default LinksBlock;
+export default Links;

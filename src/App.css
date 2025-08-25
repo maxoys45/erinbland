@@ -28,7 +28,7 @@
   }
 
   h1 {
-    @apply font-serif text-3xl tracking-widest uppercase md:text-4xl;
+    @apply font-serif text-3xl uppercase tracking-widest md:text-4xl;
   }
 
   a {
@@ -38,6 +38,6 @@
 
 @layer components {
   .navlink {
-    @apply after:absolute after:top-full after:left-0 after:block after:h-px after:w-screen after:bg-black after:opacity-0 after:transition-[opacity,translate] max-md:after:delay-500 md:after:right-0 md:after:left-auto md:after:translate-x-[-100%] md:after:duration-500;
+    @apply after:pointer-events-none after:absolute after:left-0 after:top-full after:block after:h-px after:w-screen after:bg-black after:opacity-0 after:transition-[opacity,translate] max-md:after:delay-500 md:after:left-auto md:after:right-0 md:after:translate-x-[-100%] md:after:duration-500;
   }
 }

@@ -1,6 +1,4 @@
-// import { type Header as HeaderType } from "../@types/context";
-
-const HeaderBlock = ({
+const Header = ({
   title,
   description,
 }: {
@@ -22,4 +20,4 @@ const HeaderBlock = ({
   );
 };
 
-export default HeaderBlock;
+export default Header;

@@ -20,10 +20,26 @@ const Image = ({ image }: { image: ImageType }) => {
       >
         <img
           className="max-w-full shadow"
-          src={image.src}
+          src={`${image.src}?w=1420&auto=format&q=80`}
+          srcSet={`
+            ${image.src}?w=610&auto=format&q=80 610w,
+            ${image.src}?w=690&auto=format&q=80 690w,
+            ${image.src}?w=1420&auto=format&q=80 1420w
+          `}
+          sizes="
+            (min-width: 1024px) 1420px,
+            (min-width: 768px) 690px,
+            610px"
           alt=""
           onLoad={() => setLoading(false)}
         />
+
+        {/*  <img
+          className="max-w-full shadow"
+          src={image.src}
+          alt=""
+          onLoad={() => setLoading(false)}
+        /> */}
       </div>
     </>
   );

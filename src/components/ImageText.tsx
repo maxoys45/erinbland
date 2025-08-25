@@ -2,7 +2,7 @@ import type { Image as ImageType } from "../@types/context";
 
 import Image from "./Image";
 
-const ImageTextBlock = ({ contentBlock }: { contentBlock: ImageType }) => {
+const ImageText = ({ contentBlock }: { contentBlock: ImageType }) => {
   return (
     <>
       <hr className="my-10 h-px w-full border-0 bg-gray-300 md:my-16" />
@@ -22,4 +22,4 @@ const ImageTextBlock = ({ contentBlock }: { contentBlock: ImageType }) => {
   );
 };
 
-export default ImageTextBlock;
+export default ImageText;
