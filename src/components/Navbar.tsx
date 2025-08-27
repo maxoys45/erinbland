@@ -1,7 +1,6 @@
 import { useContext, useEffect, useRef, useState } from "react";
 import { NavLink } from "react-router-dom";
 import clsx from "clsx";
-import slugify from "slugify";
 
 import AppContext from "../context/appContext";
 import type { AppContextType } from "../@types/context";
