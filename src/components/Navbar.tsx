@@ -15,6 +15,7 @@ import LinkedIn from "../assets/linkedin.svg?react";
 const Navbar = () => {
   const { showMenu, toggleMenu } = useContext<AppContextType>(AppContext);
   const [nav, setNav] = useState<NavItems>(null);
+  const [subIndex, setSubIndex] = useState<number | null>(null);
   const sidebarRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -29,8 +30,18 @@ const Navbar = () => {
 
   useEffect(() => {
     client
-      .fetch<NavItems>(`*[_type == "navigation"][0].items`)
+      .fetch<NavItems>(
+        `*[_type == "navigation"][0].items[]{
+          title,
+          "slug": page->slug.current,
+          children[]{
+            title,
+            "slug": page->slug.current
+          }
+        }`
+      )
       .then((data) => {
+        console.log(data);
         setNav(data);
       })
       .catch((err) => console.error(err));
@@ -43,6 +54,11 @@ const Navbar = () => {
     ) {
       toggleMenu(true);
     }
+  };
+
+  const toggleSubMenu = (index: number) => {
+    console.log(index);
+    setSubIndex(subIndex === index ? null : index);
   };
 
   return (
@@ -61,25 +77,61 @@ const Navbar = () => {
         )}
         ref={sidebarRef}
       >
-        <ul className="mt-8 mb-auto flex flex-col gap-2 md:mt-0">
+        <ul className="mt-8 mb-auto flex flex-col items-start gap-2 overflow-auto md:mt-0">
           {nav &&
-            nav.map((item) => {
-              const url = slugify(item, { lower: true });
-
+            nav.map((item, index) => {
               return (
-                <li key={url}>
-                  <NavLink
-                    to={url === "about" ? "../" : `../${url}`}
-                    className={({ isActive }) =>
-                      clsx(
-                        "navlink relative block md:inline-block",
-                        isActive &&
-                          "text-black after:opacity-100 md:after:translate-x-0"
-                      )
-                    }
-                  >
-                    {item}
-                  </NavLink>
+                <li key={item.slug}>
+                  {item.children ? (
+                    <>
+                      <button
+                        className={clsx(
+                          "border-t- flex cursor-pointer items-center gap-2 after:h-0 after:w-0 after:border-t-[5px] after:border-r-[3px] after:border-l-[3px] after:border-r-transparent after:border-l-transparent after:transition-transform after:duration-300",
+                          subIndex === index
+                            ? "after:mt-0 after:rotate-x-180"
+                            : "after:mt-0.5 after:rotate-x-0"
+                        )}
+                        onClick={() => toggleSubMenu(index)}
+                      >
+                        {item.title}
+                      </button>
+
+                      <div
+                        className={clsx(
+                          "grid pl-2 transition-all",
+                          subIndex === index
+                            ? "grid-rows-[1fr]"
+                            : "grid-rows-[0fr]"
+                        )}
+                      >
+                        <div className="flex flex-col items-start gap-2 overflow-hidden">
+                          {item.children.map((child, index) => (
+                            <NavLink
+                              to={child.slug}
+                              className={({ isActive }) =>
+                                clsx(
+                                  "navlink",
+                                  isActive && "is-active",
+                                  index === 0 && "mt-2"
+                                )
+                              }
+                            >
+                              {child.title}
+                            </NavLink>
+                          ))}
+                        </div>
+                      </div>
+                    </>
+                  ) : (
+                    <NavLink
+                      to={item.slug === "about" ? "../" : `../${item.slug}`}
+                      className={({ isActive }) =>
+                        clsx("navlink", isActive && "is-active")
+                      }
+                    >
+                      {item.title}
+                    </NavLink>
+                  )}
                 </li>
               );
             })}

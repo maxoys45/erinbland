@@ -13,17 +13,24 @@ import Burger from "../assets/menu.svg?react";
 const Layout = ({ copy }: { copy: WebsiteCopy }) => {
   const { showMenu, toggleMenu } = useContext<AppContextType>(AppContext);
 
+  const firstName = copy?.brandName.split(" ")[0];
+  const lastName = copy?.brandName.split(" ")[1];
+
   useEffect(() => {
     document.body.classList.toggle("no-overflow", showMenu);
   }, [showMenu]);
 
   return (
     <div className="flex grow flex-col bg-gray-50 md:flex-row">
-      <header className="sticky top-0 z-50 shrink-0 bg-eb-green-light px-4 py-4 max-md:flex max-md:items-center max-md:justify-between md:h-screen md:px-10 md:pt-8 md:before:absolute md:before:top-0 md:before:right-0 md:before:bottom-0 md:before:-z-1 md:before:block md:before:h-full md:before:w-[500%] md:before:bg-eb-green lg:px-16 lg:pt-14">
-        {copy && (
-          <p className="text-3xl leading-none font-light tracking-[-0.1em] text-gray-700 hover:text-black md:mb-8 lg:text-4xl">
-            <Link to="../">{copy.brandName}</Link>
-          </p>
+      <header className="sticky top-0 z-50 shrink-0 bg-menu-gray px-4 py-4 max-md:flex max-md:items-center max-md:justify-between md:h-screen md:px-10 md:pt-8 lg:px-16 lg:pt-14">
+        {firstName && (
+          <Link
+            className="flex items-baseline gap-1 font-serif text-3xl leading-none tracking-[-0.05em] text-gray-700 hover:text-gray-950 md:mb-8 lg:text-4xl"
+            to="../"
+          >
+            <span>{firstName}</span>
+            {lastName && <span className="italic"> {lastName}</span>}
+          </Link>
         )}
 
         <button

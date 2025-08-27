@@ -9,7 +9,14 @@ export default defineType({
       name: 'items',
       title: 'Menu Items',
       type: 'array',
-      of: [{type: 'string'}],
+      of: [{type: 'menuItem'}],
     }),
   ],
+  preview: {
+    prepare() {
+      return {
+        title: 'Navigation',
+      }
+    },
+  },
 })

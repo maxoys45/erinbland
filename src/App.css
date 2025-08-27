@@ -2,11 +2,11 @@
 
 @theme {
   --font-sans: "Quicksand", "sans-serif";
-  --font-serif: "Gloock", serif;
+  --font-serif: "DM Serif Text", serif;
+  --font-title: "Ramabhadra", sans-serif;
   --tw-ease: ease-in-out;
   --tw-duration: 0.25s;
-  --color-eb-green: #d3e2de;
-  --color-eb-green-light: #e3f0ed;
+  --color-menu-gray: #e9e9e9;
 }
 
 @layer base {
@@ -28,7 +28,7 @@
   }
 
   h1 {
-    @apply font-serif text-3xl uppercase tracking-widest md:text-4xl;
+    @apply font-title text-3xl uppercase md:text-4xl;
   }
 
   a {
@@ -38,6 +38,10 @@
 
 @layer components {
   .navlink {
-    @apply after:pointer-events-none after:absolute after:left-0 after:top-full after:block after:h-px after:w-screen after:bg-black after:opacity-0 after:transition-[opacity,translate] max-md:after:delay-500 md:after:left-auto md:after:right-0 md:after:translate-x-[-100%] md:after:duration-500;
+    @apply relative block after:pointer-events-none after:absolute after:bottom-0 after:left-0 after:block after:h-px after:w-screen after:bg-black after:opacity-0 after:transition-[opacity,translate] max-md:overflow-hidden max-md:after:delay-500 md:inline-block md:after:right-0 md:after:left-auto md:after:translate-x-[-100%] md:after:duration-500;
+
+    &.is-active {
+      @apply text-black after:opacity-100 md:after:translate-x-0;
+    }
   }
 }
