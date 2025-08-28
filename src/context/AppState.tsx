@@ -6,6 +6,7 @@ import AppReducer from "./appReducer";
 import {
   AppInitialState,
   GET_CONTENT,
+  GET_COPY,
   CLEAR_CONTENT,
   TOGGLE_MENU,
   SET_LOADING,
@@ -48,6 +49,21 @@ const AppState = ({ children }: { children: ReactNode }) => {
     });
   }, []);
 
+  // Retrieve the copy from Sanity.
+  const getCopy = useCallback(async () => {
+    const query = `
+      *[_type == "copy"][0] {
+        ...
+      }`;
+
+    const response = await client.fetch(query);
+
+    dispatch({
+      type: GET_COPY,
+      payload: response,
+    });
+  }, []);
+
   // Toggle the menu state.
   const toggleMenu = (prev: boolean) => {
     const newState = !prev;
@@ -68,9 +84,11 @@ const AppState = ({ children }: { children: ReactNode }) => {
     <AppContext.Provider
       value={{
         content: state.content,
+        copy: state.copy,
         showMenu: state.showMenu,
         loading: state.loading,
         getContent,
+        getCopy,
         toggleMenu,
       }}
     >

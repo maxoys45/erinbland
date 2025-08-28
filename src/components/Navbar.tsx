@@ -40,7 +40,7 @@ const Navbar = () => {
         }`
       )
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         setNav(data);
       })
       .catch((err) => console.error(err));
@@ -56,7 +56,6 @@ const Navbar = () => {
   };
 
   const toggleSubMenu = (index: number) => {
-    console.log(index);
     setSubIndex(subIndex === index ? null : index);
   };
 
@@ -106,7 +105,6 @@ const Navbar = () => {
                         <div className="flex flex-col items-start gap-2 overflow-hidden">
                           {item.children.map((child, index) => (
                             <NavLink
-                              to={child.slug}
                               className={({ isActive }) =>
                                 clsx(
                                   "navlink",
@@ -114,6 +112,8 @@ const Navbar = () => {
                                   index === 0 && "mt-2"
                                 )
                               }
+                              to={child.slug}
+                              key={index}
                             >
                               {child.title}
                             </NavLink>
@@ -123,7 +123,7 @@ const Navbar = () => {
                     </>
                   ) : (
                     <NavLink
-                      to={item.slug === "about" ? "../" : `../${item.slug}`}
+                      to={item.slug === "about" ? "/" : `/${item.slug}`}
                       className={({ isActive }) =>
                         clsx("navlink", isActive && "is-active")
                       }

@@ -1,5 +1,6 @@
 import {
   GET_CONTENT,
+  GET_COPY,
   CLEAR_CONTENT,
   TOGGLE_MENU,
   SET_LOADING,
@@ -17,6 +18,12 @@ const AppReducer = (
         ...state,
         content: action.payload,
         loading: false,
+      };
+
+    case GET_COPY:
+      return {
+        ...state,
+        copy: action.payload,
       };
 
     case CLEAR_CONTENT:

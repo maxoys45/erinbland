@@ -1,6 +1,11 @@
-import type { WebsiteCopy } from "../@types/sanity";
+import { useContext } from "react";
 
-const Footer = ({ copy }: { copy: WebsiteCopy }) => {
+import AppContext from "../context/appContext";
+import type { AppContextType } from "../@types/context";
+
+const Footer = () => {
+  const { copy } = useContext<AppContextType>(AppContext);
+
   if (!copy) return null;
 
   return (

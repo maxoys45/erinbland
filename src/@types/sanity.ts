@@ -12,8 +12,3 @@ export type NavItem = {
 };
 
 export type NavItems = NavItem[] | null;
-
-export type WebsiteCopy = {
-  brandName: string;
-  copyright: string;
-} | null;

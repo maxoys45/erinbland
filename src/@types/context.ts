@@ -1,4 +1,5 @@
 export const GET_CONTENT = "GET_CONTENT";
+export const GET_COPY = "GET_COPY";
 export const TOGGLE_MENU = "TOGGLE_MENU";
 export const CLEAR_CONTENT = "CLEAR_CONTENT";
 export const SET_LOADING = "SET_LOADING";
@@ -21,19 +22,26 @@ type Content = {
   links?: Link[];
 };
 
+type WebsiteCopy = {
+  [key: string]: string;
+};
+
 export type AppStateType = {
   content: Content | null;
+  copy: WebsiteCopy | null;
   showMenu: boolean;
   loading: boolean;
 };
 
 export type AppContextType = AppStateType & {
-  getContent: (filename: string) => void;
+  getContent: (slug: string) => void;
+  getCopy: () => void;
   toggleMenu: (prev: boolean) => void;
 };
 
 export const AppInitialState: AppStateType = {
   content: null,
+  copy: null,
   showMenu: false,
   loading: false,
 };
@@ -41,11 +49,13 @@ export const AppInitialState: AppStateType = {
 export const AppInitialContext: AppContextType = {
   ...AppInitialState,
   getContent: () => {},
+  getCopy: () => {},
   toggleMenu: () => {},
 };
 
 export type ContentAction =
   | { type: typeof GET_CONTENT; payload: Content }
+  | { type: typeof GET_COPY; payload: WebsiteCopy }
   | { type: typeof CLEAR_CONTENT }
   | { type: typeof TOGGLE_MENU; payload: boolean }
   | { type: typeof SET_LOADING };

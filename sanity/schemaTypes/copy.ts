@@ -9,13 +9,11 @@ export default defineType({
       name: 'brandName',
       title: 'Brand name',
       type: 'string',
-      initialValue: 'erin bland',
     }),
     defineField({
       name: 'copyright',
       title: 'Footer copyright',
       type: 'string',
-      initialValue: 'Copyright © All rights reserved.',
     }),
   ],
   preview: {

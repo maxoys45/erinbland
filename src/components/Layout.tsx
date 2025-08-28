@@ -3,15 +3,19 @@ import { Link, Outlet } from "react-router-dom";
 
 import AppContext from "../context/appContext";
 import type { AppContextType } from "../@types/context";
-import type { WebsiteCopy } from "../@types/sanity";
 
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 
 import Burger from "../assets/menu.svg?react";
 
-const Layout = ({ copy }: { copy: WebsiteCopy }) => {
-  const { showMenu, toggleMenu } = useContext<AppContextType>(AppContext);
+const Layout = () => {
+  const { getCopy, copy, showMenu, toggleMenu } =
+    useContext<AppContextType>(AppContext);
+
+  useEffect(() => {
+    getCopy();
+  }, []);
 
   const firstName = copy?.brandName.split(" ")[0];
   const lastName = copy?.brandName.split(" ")[1];
@@ -46,7 +50,7 @@ const Layout = ({ copy }: { copy: WebsiteCopy }) => {
       <div className="container mx-auto flex grow flex-col px-4 pt-6 md:px-10 md:pt-8 lg:px-14 lg:pt-14">
         <Outlet />
 
-        <Footer copy={copy} />
+        <Footer />
       </div>
     </div>
   );
