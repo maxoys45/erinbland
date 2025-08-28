@@ -1,6 +1,5 @@
 import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import clsx from "clsx";
 import { motion, AnimatePresence } from "framer-motion";
 
 import AppContext from "../context/appContext";
@@ -11,7 +10,6 @@ import Images from "./Images";
 import ImageText from "./ImageText";
 import Links from "./Links";
 
-import Spinner from "./Spinner";
 import NotFound from "./NotFound";
 
 const PageRenderer = () => {
