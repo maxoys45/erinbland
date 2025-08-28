@@ -12,11 +12,15 @@ import Links from "./Links";
 
 import NotFound from "./NotFound";
 
+import Spinner from "./Spinner";
+
 const PageRenderer = () => {
   const { slug } = useParams<{ slug?: string }>();
   const { content, loading, getContent, toggleMenu } =
     useContext<AppContextType>(AppContext);
-  const [localContent, setLocalContent] = useState<typeof content>(null);
+  const [localContent, setLocalContent] = useState<typeof content | undefined>(
+    undefined
+  );
 
   const pageSlug = slug || "about";
 
@@ -34,30 +38,51 @@ const PageRenderer = () => {
     }
   }, [loading, content]);
 
-  if (!localContent) return <NotFound />;
-
-  const { title, description, images, contentBlock, links } = localContent;
+  const fadeMotion = {
+    initial: { opacity: 0, transform: "translateY(2rem)" },
+    animate: { opacity: 1, transform: "translateY(0)" },
+    exit: { opacity: 0, transform: "translateY(-2rem)" },
+    transition: { duration: 0.3 },
+  };
 
   return (
     <AnimatePresence mode="wait">
-      <motion.article
-        key={pageSlug}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{ duration: 0.3 }}
-        className="mb-10 flex grow flex-col items-center"
-      >
-        {(title || description) && (
-          <Header title={title} description={description} />
-        )}
+      {loading ? (
+        <motion.div
+          key="spinner"
+          className="relative mt-10 flex grow justify-center"
+          {...fadeMotion}
+        >
+          <Spinner />
+        </motion.div>
+      ) : localContent ? (
+        <motion.article
+          key={slug}
+          className="mb-10 flex grow flex-col items-center"
+          {...fadeMotion}
+        >
+          {(localContent.title || localContent.description) && (
+            <Header
+              title={localContent.title}
+              description={localContent.description}
+            />
+          )}
 
-        {images?.length && <Images images={images} />}
+          {localContent.images?.length && (
+            <Images images={localContent.images} />
+          )}
 
-        {contentBlock && <ImageText contentBlock={contentBlock} />}
+          {localContent.contentBlock && (
+            <ImageText contentBlock={localContent.contentBlock} />
+          )}
 
-        {links?.length && <Links links={links} />}
-      </motion.article>
+          {localContent.links?.length && <Links links={localContent.links} />}
+        </motion.article>
+      ) : (
+        <motion.div key="404" {...fadeMotion}>
+          <NotFound />
+        </motion.div>
+      )}
     </AnimatePresence>
   );
 };
