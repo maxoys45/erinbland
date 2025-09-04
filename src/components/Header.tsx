@@ -14,7 +14,7 @@ const Header = ({
       )}
 
       {description && (
-        <p className="mx-auto max-w-3xl text-center text-sm whitespace-pre-line italic md:text-lg">
+        <p className="mx-auto max-w-4xl text-center text-sm whitespace-pre-line italic md:text-lg">
           {description}
         </p>
       )}
