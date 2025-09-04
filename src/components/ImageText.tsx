@@ -9,7 +9,7 @@ const ImageText = ({ contentBlock }: { contentBlock: ImageType }) => {
 
   return (
     <>
-      <hr className="my-10 h-px w-full border-0 bg-gray-300 md:my-16" />
+      <hr className="my-8 h-px w-full border-0 bg-gray-300 md:my-16" />
 
       <div className="grid items-center gap-4 xl:grid-cols-2 xl:gap-10">
         <figure className="relative">

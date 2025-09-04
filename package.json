@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "cms": "cd sanity && yarn dev",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview"

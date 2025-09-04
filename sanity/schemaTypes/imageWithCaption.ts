@@ -6,6 +6,12 @@ export default defineType({
   type: 'object',
   fields: [
     defineField({
+      name: 'title',
+      title: 'Title',
+      type: 'text',
+      rows: 2,
+    }),
+    defineField({
       name: 'image',
       title: 'Image',
       type: 'image',

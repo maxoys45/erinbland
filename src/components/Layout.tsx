@@ -47,7 +47,7 @@ const Layout = () => {
         <Navbar />
       </header>
 
-      <div className="container mx-auto flex grow flex-col px-4 pt-6 md:px-10 md:pt-8 lg:px-14 lg:pt-14">
+      <div className="container flex grow flex-col px-4 pt-6 max-md:mx-auto md:px-10 md:pt-8 lg:px-14 lg:pt-14">
         <Outlet />
 
         <Footer />

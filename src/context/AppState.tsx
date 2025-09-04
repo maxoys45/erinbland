@@ -27,6 +27,7 @@ const AppState = ({ children }: { children: ReactNode }) => {
         title,
         description,
         images[]{
+          title,
           "src": image.asset->url,
           caption
         },

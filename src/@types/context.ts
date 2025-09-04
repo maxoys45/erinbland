@@ -5,9 +5,12 @@ export const CLEAR_CONTENT = "CLEAR_CONTENT";
 export const SET_LOADING = "SET_LOADING";
 
 export type Image = {
+  title?: string;
   src: string;
-  caption: string;
+  caption?: string;
 };
+
+export type ImageGroup = Image[];
 
 export type Link = {
   url: string;
