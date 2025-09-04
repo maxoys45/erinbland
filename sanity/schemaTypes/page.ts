@@ -8,7 +8,8 @@ export default defineType({
     defineField({
       name: 'title',
       title: 'Title',
-      type: 'string',
+      type: 'text',
+      rows: 2,
       description: "Leave blank if you don't need a title.",
     }),
     defineField({
@@ -26,6 +27,7 @@ export default defineType({
       name: 'description',
       title: 'Description',
       type: 'text',
+      rows: 5,
       description: "Leave blank if you don't need a description.",
     }),
     defineField({

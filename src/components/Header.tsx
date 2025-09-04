@@ -9,10 +9,12 @@ const Header = ({
     <>
       <title>{`Erin Bland${title && ` - ${title}`}`}</title>
 
-      {title && <h1 className="mb-4 text-center">{title}</h1>}
+      {title && (
+        <h1 className="mb-4 text-center whitespace-pre-line">{title}</h1>
+      )}
 
       {description && (
-        <p className="mx-auto max-w-3xl text-center text-sm md:text-lg">
+        <p className="mx-auto max-w-3xl text-center text-sm whitespace-pre-line italic md:text-lg">
           {description}
         </p>
       )}

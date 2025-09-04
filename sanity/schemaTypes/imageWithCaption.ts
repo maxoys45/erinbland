@@ -14,6 +14,7 @@ export default defineType({
       name: 'caption',
       title: 'Caption',
       type: 'text',
+      rows: 3,
     }),
   ],
   preview: {
