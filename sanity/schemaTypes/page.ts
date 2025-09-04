@@ -50,4 +50,15 @@ export default defineType({
       of: [{type: 'links'}],
     }),
   ],
+  preview: {
+    select: {
+      title: 'title',
+      slug: 'slug',
+    },
+    prepare({title, slug}) {
+      return {
+        title: title || slug.current,
+      }
+    },
+  },
 })
